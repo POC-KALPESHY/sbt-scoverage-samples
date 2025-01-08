@@ -42,6 +42,23 @@ pipeline:
                     shell: Sh
                     command: sbt test
                     intelligenceMode: true
+                  when:
+                    stageStatus: Failure
+              - step:
+                  type: RunTests
+                  name: RunTests
+                  identifier: RunTests
+                  spec:
+                    language: Scala
+                    buildTool: SBT
+                    args: sbt test
+                    runOnlySelectedTests: true
+                    reports:
+                      type: JUnit
+                      spec:
+                        paths:
+                          - "**/*.xml"
+                    enableTestSplitting: false
           platform:
             os: Linux
             arch: Amd64
