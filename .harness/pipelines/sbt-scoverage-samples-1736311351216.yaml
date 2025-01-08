@@ -49,6 +49,15 @@ pipeline:
                   spec:
                     shell: Sh
                     command: sbt package
+              - step:
+                  type: S3Upload
+                  name: S3Upload
+                  identifier: S3Upload
+                  spec:
+                    connectorRef: S3
+                    region: us-east-1
+                    bucket: demoharnesss3
+                    sourcePath: "**/*.jar"
           platform:
             os: Linux
             arch: Amd64
