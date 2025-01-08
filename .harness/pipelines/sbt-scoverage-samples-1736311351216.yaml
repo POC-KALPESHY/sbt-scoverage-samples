@@ -35,20 +35,20 @@ pipeline:
                     shell: Sh
                     command: sbt compile
               - step:
-                  type: RunTests
-                  name: RunTests
-                  identifier: RunTests
+                  type: Test
+                  name: Test
+                  identifier: Test
                   spec:
-                    language: Scala
-                    buildTool: SBT
-                    args: sbt test
-                    runOnlySelectedTests: true
-                    reports:
-                      type: JUnit
-                      spec:
-                        paths:
-                          - "**/*.xml"
-                    enableTestSplitting: false
+                    shell: Sh
+                    command: sbt test
+                    intelligenceMode: true
+              - step:
+                  type: Run
+                  name: Package
+                  identifier: Package
+                  spec:
+                    shell: Sh
+                    command: sbt package
           platform:
             os: Linux
             arch: Amd64
