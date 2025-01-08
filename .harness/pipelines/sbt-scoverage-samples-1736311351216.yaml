@@ -1,0 +1,35 @@
+pipeline:
+  identifier: Build_POC_KALPESHY_sbt_scoverage_samples_1736311364111
+  name: Build sbt-scoverage-samples
+  orgIdentifier: default
+  projectIdentifier: Shubham
+  properties:
+    ci:
+      codebase:
+        build: <+input>
+        connectorRef: account.Github
+        repoName: POC-KALPESHY/sbt-scoverage-samples
+  stages:
+    - stage:
+        identifier: build
+        name: build
+        spec:
+          caching:
+            enabled: true
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  identifier: echo
+                  name: echo
+                  spec:
+                    command: echo hello world
+                  timeout: ""
+                  type: Run
+          platform:
+            arch: Amd64
+            os: Linux
+          runtime:
+            spec: {}
+            type: Cloud
+        type: CI
