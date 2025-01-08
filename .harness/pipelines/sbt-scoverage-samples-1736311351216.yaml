@@ -59,6 +59,8 @@ pipeline:
                         paths:
                           - "**/*.xml"
                     enableTestSplitting: false
+                  when:
+                    stageStatus: Failure
           platform:
             os: Linux
             arch: Amd64
