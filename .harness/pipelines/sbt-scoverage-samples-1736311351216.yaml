@@ -35,16 +35,6 @@ pipeline:
                     shell: Sh
                     command: sbt compile
               - step:
-                  type: Test
-                  name: Test
-                  identifier: Test
-                  spec:
-                    shell: Sh
-                    command: sbt test
-                    intelligenceMode: true
-                  when:
-                    stageStatus: Failure
-              - step:
                   type: RunTests
                   name: RunTests
                   identifier: RunTests
@@ -59,8 +49,6 @@ pipeline:
                         paths:
                           - "**/*.xml"
                     enableTestSplitting: false
-                  when:
-                    stageStatus: Failure
           platform:
             os: Linux
             arch: Amd64
