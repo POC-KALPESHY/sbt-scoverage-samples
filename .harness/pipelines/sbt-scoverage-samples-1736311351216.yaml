@@ -51,12 +51,12 @@ pipeline:
                     command: sbt package
               - step:
                   type: S3Upload
-                  name: S3Upload
-                  identifier: S3Upload
+                  name: S3Upload_1
+                  identifier: S3Upload_1
                   spec:
                     connectorRef: S3
                     region: us-east-1
-                    bucket: demoharnesss3
+                    bucket: shubhamdemos3
                     sourcePath: "**/*.jar"
           platform:
             os: Linux
