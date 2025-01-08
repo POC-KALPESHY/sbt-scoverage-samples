@@ -49,6 +49,9 @@ pipeline:
                   spec:
                     shell: Sh
                     command: sbt package
+                    outputVariables:
+                      - name: ARTIFACT_PATH
+                        value: "**/*.jar"
               - step:
                   type: S3Upload
                   name: S3Upload_1
