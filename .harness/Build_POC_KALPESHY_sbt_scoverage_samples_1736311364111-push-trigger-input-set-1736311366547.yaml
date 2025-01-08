@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_POC_KALPESHY_sbt_scoverage_samples_1736311364111-push-trigger-input-set
+  identifier: Build_POC_KALPESHY_sbt_scoverage_samples_1736311364111pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: Shubham
+  pipeline:
+    identifier: Build_POC_KALPESHY_sbt_scoverage_samples_1736311364111
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
