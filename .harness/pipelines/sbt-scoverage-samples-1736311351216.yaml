@@ -34,6 +34,14 @@ pipeline:
                   spec:
                     shell: Sh
                     command: sbt compile
+              - step:
+                  type: Test
+                  name: Test
+                  identifier: Test
+                  spec:
+                    shell: Sh
+                    command: sbt test
+                    intelligenceMode: true
           platform:
             os: Linux
             arch: Amd64
